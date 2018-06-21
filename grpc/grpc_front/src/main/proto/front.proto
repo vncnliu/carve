@@ -1,0 +1,24 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.sangame.jjhs.grpc";
+option java_outer_classname = "FrontProto";
+option objc_class_prefix = "HLW";
+
+package front;
+
+service Login {
+    rpc LoginWithToken (TokenLoginRequest) returns (stream TokenLoginReply) {}
+}
+
+// The request message containing the user's name.
+message TokenLoginRequest {
+    string token = 1;
+}
+
+// The response message containing the greetings
+message TokenLoginReply {
+    int32 code =1;
+    string message = 2;
+}

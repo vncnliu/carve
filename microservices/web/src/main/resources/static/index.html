@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title test ssss ddddd ffff</title>
+</head>
+<script>
+    if ('EventSource' in window) {
+        // ...
+        var source = new EventSource("/event/quotes");
+        source.onopen = function (event) {
+            console.log(event);
+        };
+        source.onmessage = function (event) {
+            var data = JSON.parse(event.data);
+            var now = new Date();
+            console.log(now.getTime()-data.time);
+            var origin = event.origin;
+            var lastEventId = event.lastEventId;
+        };
+        source.onerror = function (event) {
+            console.log("error");
+        };
+    }
+</script>
+<body>
+
+</body>
+</html>

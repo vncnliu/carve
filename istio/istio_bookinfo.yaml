@@ -1,0 +1,29 @@
+version: '2'
+services:
+  bookinfo-v1:
+    image: top.vncnliu/istio_bookinfo:latest
+    networks:
+      default:
+        aliases:
+          - details
+    environment:
+      - SERVICE_NAME=istio_bookinfo
+      - SERVICE_TAGS=version|v1
+    ports:
+      - "8631"
+    expose:
+      - "8631"
+
+  front-v1:
+    image: top.vncnliu/istio_front:latest
+    networks:
+      default:
+        aliases:
+          - productpage
+    environment:
+      - SERVICE_NAME=productpage
+      - SERVICE_TAGS=version|v1
+    ports:
+      - "8630"
+    expose:
+      - "8630"

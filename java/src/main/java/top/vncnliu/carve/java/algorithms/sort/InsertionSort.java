@@ -1,5 +1,7 @@
 package top.vncnliu.carve.java.algorithms.sort;
 
+import sun.misc.Unsafe;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import java.util.List;
 public class InsertionSort {
 
     public static void main(String[] args) {
+
         int[] disorderly = {5,7,7,71};
         List<Integer> orderly = new ArrayList<Integer>();
 
